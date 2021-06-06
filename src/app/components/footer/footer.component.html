@@ -1,0 +1,117 @@
+<!-- Footer design -->
+
+
+<div class="jumbotron jumbotron-fluid" id="lastContainer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="container">
+                                <div class="row" id="footer">
+                                    <div class="col-sm-3">
+                                        <h3>Get to Know Us</h3>
+                                        <a routerLink="/book-list">About Us</a><br>
+                                        <a routerLink="/log-out">Careers</a><br>
+                                        <a routerLink="/log-out">BookStore cares</a><br>
+                                        <a routerLink="/log-out">Our goal</a>
+                                    </div>
+                                    <div class="vl"></div>
+
+                                    <div class="col-sm-4">
+                                        <h3>Connect with Us</h3>
+                                        <i class="fab fa-whatsapp" id="cartIcon"></i><a
+                                            routerLink="/log-out">WhatsApp</a><br>
+                                        <i class="fab fa-facebook-square" id="cartIcon"></i><a
+                                            routerLink="/book-list">Facebook</a><br>
+                                        <i class="fab fa-twitter-square" id="cartIcon"></i><a
+                                            routerLink="/log-out">Twitter</a><br>
+                                        <i class="fab fa-instagram" id="cartIcon"></i><a
+                                            routerLink="/log-out">Instagram</a><br>
+                                        <i class="fab fa-telegram-plane" id="cartIcon"></i><a
+                                            routerLink="/log-out">Telegram</a>
+                                    </div>
+                                    <div class="vl"></div>
+
+                                    <div class="col-sm-4">
+                                        <h3> NEED HELP ?</h3>
+                                        <a routerLink="/book-list">FAQ</a><br>
+                                        <a routerLink="/log-out">Online shoping</a><br>
+                                        <a routerLink="/log-out">Privacy policy</a><br>
+                                        <a routerLink="/log-out">Terms of Use</a>
+                                    </div>
+                                    <div class="vl"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+            <!-- Contact Us design       -->
+
+            <div class="col-sm-3">
+                <h2>Contact Us</h2>
+                <div class="container">
+
+                    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                        <div class="cont">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="heading" id="headingLabel">Heading</label>
+                                        <div class="input-group">
+                                            <input id="heading" name="heading" class="form-control"
+                                                placeholder="Give a heading" ngModel>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" id="emailLabel">E-mail</label>
+                                        <div class="input-group">
+                                            <input id="email" name="email" class="form-control"
+                                                placeholder="abc@gmail.com" ngModel>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="comment" id="commentLabel">Comment</label>
+                                        <div class="input-group">
+                                            <textarea rows="2" id="comment" name="comment" class="form-control"
+                                                placeholder="Write here" ngModel></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button id="submitButton" class="btn btn-info">Submit</button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="d-flex justify-content-center mb-6">
+    <div class="rights"><span>&#174;</span> BookStore All Rights Reserved.</div>
+</div>

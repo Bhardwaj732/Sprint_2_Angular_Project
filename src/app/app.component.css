@@ -1,0 +1,62 @@
+.example-card-FirstColumn {
+    max-width: 400px;
+    background-color: #61e9ee;
+  }
+
+
+  .example-card-SecondColumn {
+    max-width: 400px;
+    background-color: #f58a4c;
+  }
+
+
+  .example-card-ThirdColumn {
+    max-width: 400px;
+    background-color: #90f063;
+  }
+
+
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  /* #user {
+      margin-left: 10px;
+      margin-top: 30px;
+  } */
+
+  .cu {
+      font-size: 25px;
+      font-family: rockwell;
+      font-weight: 600;
+      margin-top: 12px;
+  }
+
+
+  #ca {
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+
+
+  #bt {
+      margin-left: 20px;
+  }
+
+
+  .FirstColumn {
+      margin-top: 30px;
+      white-space: normal;
+  }
+
+  .SecondColumn {
+    margin-top: 30px;
+}
+
+.ThirdColumn {
+    margin-top: 30px;
+}
+
+

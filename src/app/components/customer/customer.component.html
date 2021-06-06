@@ -1,0 +1,342 @@
+<p>customer works!</p>
+
+<!-- <p>You can introduce custom directives for table headers to sort columns</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
+    <th scope="col" sortable="area" (sort)="onSort($event)">Area</th>
+    <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let country of countries">
+    <th scope="row">{{ country.id }}</th>
+    <td>
+      <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
+      {{ country.name }}
+    </td>
+    <td>{{ country.area | number }}</td>
+    <td>{{ country.population | number }}</td>
+  </tr>
+  </tbody>
+</table> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="Tablecontainer">
+  <div class="search-div">
+    <button mat-raised-button>
+      <mat-icon>add</mat-icon>Create
+    </button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter()" [(ngModel)]="searchKey" placeholder="Search here" #input>
+      <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Customer Id Column -->
+      <ng-container matColumnDef="customerId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Customer Id</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.customerId}}</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="fullName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.fullName}}</mat-cell>
+      </ng-container>
+
+      <!-- Email column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>E-mail</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
+      </ng-container>
+
+      <!-- Mobile Column -->
+      <ng-container matColumnDef="mobileNumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile No </mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.mobileNumber}}</mat-cell>
+      </ng-container>
+
+      <!-- Action column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+
+          <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, row)">
+            <i class="fa fa-search"></i>Details</button>
+          <button mat-icon-button (click)="remove(row.customerId)" color="warn">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+
+      <!-- Table header -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+
+
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+<!-- (click)="onCreate()" -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title1">Book Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" novalidate>
+      <div class="cont">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Customer Id</label>
+              <div class="input-group">
+                <input id="customerId" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Name</label>
+              <div class="input-group">
+                <input id="fullName" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>E-mail</label>
+              <div class="input-group">
+                <input id="email" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Mobile no</label>
+              <div class="input-group">
+                <input id="mobileNumber" class="form-control" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Registered On</label>
+              <div class="input-group">
+                <input id="registerOn" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Address</label>
+              <div class="input-group">
+                <input id="address" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>City</label>
+              <div class="input-group">
+                <input id="city" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Country</label>
+              <div class="input-group">
+                <input id="country" class="form-control" readonly>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-sm-10">
+            <table>
+                <title>List Of Customer</title>
+                <thead>
+                    <tr>
+                        <th>Customer Id</th>
+                        <th>E-mail</th>
+                        <th>Name</th>
+                        <th>Mobile Number</th>
+                        <th>Password</th>
+                        <th>Registered On</th>
+                        <th>User Id</th>
+                        <th>Address Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customers">
+                        <td>{{customer.customerId}}</td>
+                        <td>{{customer.email}}</td>
+                        <td>{{customer.fullName}}</td>
+                        <td>{{customer.mobileNumber}}</td>
+                        <td>{{customer.password}}</td>
+                        <td>{{customer.registerOn}}</td>
+                        <td>{{customer.userClass.userId}}</td>
+                        <td>{{customer.address.addressId}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+<!-- <div *ngFor="let customer of customers">
+    <div *ngIf="p">
+        <div>
+            <label>Id: </label> {{p.pid}}
+        </div>
+        <div>
+            <label>Name: </label> {{p.pname}}
+        </div>
+        <div>
+            <label>Price: </label> {{p.price}}
+        </div>
+        <div>
+            <button (click)='remove(p.pid)'>Delete</button>
+            <button (click)='detail(p.pid)'>Details</button>
+            <button (click)='detail(p.pid)'>Edit</button>
+        </div>
+
+        <hr />
+        
+    </div>
+</div>
+
+<hr>
+<div *ngIf="product.pid>0"> 
+    <div>
+      <label>Product Id: </label> {{product.pid}}
+    </div>
+    <div>
+      <label>Name Of Product: </label> {{product.pname}}
+    </div>
+    <div>
+      <label>Price Of Product: </label> {{product.price | currency}}
+    </div>
+  </div> -->

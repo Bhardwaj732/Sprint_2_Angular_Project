@@ -1,0 +1,43 @@
+/* .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+
+
+  .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  } */
+
+  body {
+    background-image: url("/assets/image/bodyImage.jpg");
+    min-height: 100%;    
+}
+
+  #SignButton {
+    text-align: center;
+    margin-left: 100px;
+  }
+  
+  #logIn {
+    margin-top: 60px;
+    margin-left: 80px;
+}
+
+
+.hr {
+    background-color: blue;
+    height: 3px;
+}

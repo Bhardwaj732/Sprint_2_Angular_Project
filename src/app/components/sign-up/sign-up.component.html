@@ -1,0 +1,216 @@
+<body>
+
+  
+    <div class="row">
+      <div class="col-sm-4">
+        <!-- <h2><b>Nitin Bhardwaj</b></h2> -->
+      </div>
+
+      <div class="col-sm-3">
+        <!-- <h2><b>Subhankar Singh</b></h2> -->
+      </div>
+
+      <div class="col-sm-4" id="signUp">
+        <div class="signup-form">
+
+          <form #f="ngForm" (ngSubmit)="f.valid && onSubmit(f)" novalidate>
+            <h2><b>Sign Up</b></h2>
+            <hr class="hr">
+
+            <div class="container">
+              <div class="row">
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fa fa-envelope"></span>
+                        </span>
+                      </div>
+                      <input id="fullName" name="fullName" #fullNameControl=ngModel required minlength="3"
+                        class="form-control" placeholder="please enter name" ngModel>
+                    </div>
+                    <div *ngIf="f.submitted && fullNameControl.errors!=null && fullNameControl.errors.required" class="error"
+                      style="color: red;">
+                      Name is required
+                    </div>
+                    <div *ngIf="fullNameControl.errors!=null && fullNameControl.errors.minlength" class="error"
+                      style="color: red;">
+                      Minimum length is 3
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fas fa-phone-alt"></span>
+                        </span>
+                      </div>
+                      <input id="mobileNumber" name="mobileNumber" #mobileNumberControl=ngModel required minlength="10"
+                        maxlength="10" class="form-control" placeholder="mobile no" ngModel>
+                    </div>
+                    <div *ngIf="f.submitted && mobileNumberControl.errors!=null && mobileNumberControl.errors.required" class="error"
+                      style="color: red;">
+                      Contact number is required
+                    </div>
+                    <div *ngIf="mobileNumberControl.errors!=null && mobileNumberControl.errors.minlength" class="error"
+                      style="color: red;">
+                      length should be 10
+                    </div>
+                    <div *ngIf="mobileNumberControl.errors!=null && mobileNumberControl.errors.maxlength" class="error"
+                      style="color: red;">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fas fa-address-book"></span>
+                        </span>
+                      </div>
+                      <input id="address" name="address" #addressControl=ngModel required minlength="6" class="form-control" placeholder="enter address detail"
+                        ngModel>
+                    </div>
+                    <div *ngIf="f.submitted && addressControl.errors!=null && addressControl.errors.required" class="error"
+                      style="color: red;">
+                      Address is required
+                    </div>
+                    <div *ngIf="addressControl.errors!=null && addressControl.errors.minlength" class="error"
+                      style="color: red;">
+                      minimum 6 characters required
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fas fa-globe"></span>
+                        </span>
+                      </div>
+                      <input id="country" name="country" class="form-control" #countryControl=ngModel required
+                        minlength="4" placeholder="country name" ngModel>
+                    </div>
+                    <div *ngIf="f.submitted && countryControl.errors!=null && countryControl.errors.required" class="error"
+                      style="color: red;">
+                      Country name is required
+                    </div>
+                    <div *ngIf="countryControl.errors!=null && countryControl.errors.minlength" class="error"
+                      style="color: red;">
+                      minimum 4 characters required
+                    </div>
+                  </div>
+
+                  
+
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fa fa-envelope"></span>
+                        </span>
+                      </div>
+                      <input type="email" id="email" name="email" #emailControl=ngModel required class="form-control"
+                        placeholder="please enter email id" ngModel>
+                    </div>
+                    <div *ngIf="f.submitted && emailControl.errors!=null && emailControl.errors.required" class="error"
+                      style="color: red;">
+                      Email id is required
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fas fa-key"></span>
+                        </span>
+                      </div>
+                      <input type="password" id="password" name="password" #passwordControl=ngModel required
+                        minlength="8" class="form-control" placeholder="enter password" ngModel>
+                    </div>
+                    <div *ngIf="f.submitted && passwordControl.errors!=null && passwordControl.errors.required" class="error"
+                      style="color: red;">
+                      Password is required
+                    </div>
+                    <div *ngIf="passwordControl.errors!=null && passwordControl.errors.minlength" class="error"
+                      style="color: red;">
+                      Minimum length is 8
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fas fa-map-marked"></span>
+                        </span>
+                      </div>
+                      <input id="city" name="city" #cityControl=ngModel required minlength="3" class="form-control"
+                        placeholder="city name" ngModel>
+                    </div>
+                    <div *ngIf="f.submitted && cityControl.errors!=null && cityControl.errors.required" class="error"
+                      style="color: red;">
+                      City name is required
+                    </div>
+                    <div *ngIf="cityControl.errors!=null && cityControl.errors.minlength" class="error"
+                      style="color: red;">
+                      minimum 3 characters required
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <span class="fa fa-envelope"></span>
+                        </span>
+                      </div>
+                      <input id="pincode" name="pincode" #pincodeControl=ngModel required minlength="6" maxlength="6"
+                        class="form-control" placeholder="enter pincode" ngModel>
+                    </div>
+                    <div *ngIf="f.submitted && pincodeControl.errors!=null && pincodeControl.errors.required" class="error"
+                      style="color: red;">
+                      Pincode is required
+                    </div>
+                    <div *ngIf="pincodeControl.errors!=null && pincodeControl.errors.minlength" class="error"
+                      style="color: red;">
+                      minimum 6 digit required
+                    </div>
+                    <div *ngIf="pincodeControl.errors!=null && pincodeControl.errors.maxlength" class="error"
+                      style="color: red;">
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input"
+                  [(ngModel)]="model.acceptTerms" #acceptTerms="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && acceptTerms.invalid }" required>
+                <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                <div *ngIf="f.submitted && acceptTerms.invalid" class="invalid-feedback">Accept Ts & Cs is required
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group text-center">
+              <button class="btn btn-info">Submit <i class="fas fa-share-square"></i></button>
+            </div>
+
+
+          </form>
+          <div class="text-center">Already have an account? <a href="#">Login here</a></div>
+        </div>
+      </div>
+    </div>
+  
+</body>
+

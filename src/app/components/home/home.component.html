@@ -1,0 +1,377 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Nav bar start -->
+
+    <nav class="navbar navbar-inverse navbar-static-top navbar-expand-sm">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Book Store</a>
+        </div>
+        <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Page 1</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 2 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 2-1</a></li>
+                        <li><a href="#">Page 2-2</a></li>
+                        <li><a href="#">Page 2-3</a></li>
+                    </ul>
+                </li>
+
+                <button class="btn btn-danger navbar-btn">Help</button>
+
+                <form class="navbar-form navbar-right" action="/action_page.php">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Type Text....." name="search">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <a routerLink="/sign-up" id="signUpButton"><i class="fas fa-share-square"></i> Sign Up</a>
+                <a routerLink="/login" id="loginButton"><i class="fas fa-sign-in-alt"></i> Login</a>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Nav bar start -->
+
+
+
+    <!-- Carousol Start -->
+
+    <ngb-carousel>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img src="/assets/image/41.jpg" alt="Random second slide" class="center" width="1550" height="450">
+            </div>
+        </ng-template>
+
+
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+            </div>
+            <img src="/assets/image/42.jpg" alt="Random first slide" class="center" width="1550" height="450">
+        </ng-template>
+
+
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img src="/assets/image/55.jpg" alt="Random third slide" class="center" width="1550" height="450">
+            </div>
+        </ng-template>
+
+
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+            </div>
+            <img src="/assets/image/54.jpg" alt="Random first slide" class="center" width="1550" height="450">
+        </ng-template>
+
+
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+            </div>
+            <img src="/assets/image/56.jpg" alt="Random first slide" class="center" width="1550" height="450">
+        </ng-template>
+    </ngb-carousel>
+
+    <!-- Carousol End -->
+
+
+    <!-- After carousol Book part start point -->
+
+    <div class="container">
+        <!-- <h2>Programming Books</h2> -->
+        <div class="row" id="bookRow">
+            <div class="col-sm-3 text-center" *ngFor="let book of books; let i = index">
+                <div *ngIf="i < 12">
+                    <img class="img-fluid" src="/assets/image/book/{{i}}.jpg" alt="Angular book" width="200"
+                        height="260"><br>
+                    <div class="row">
+                        <div class="col-xl-12" id="titleDeco">
+                            <p>{{book.title}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <p>Price: $-{{book.price}}</p>
+                        </div>
+                    </div>
+                    <div class="row" id="bookBottomRow">
+                        <div class="col-xl-6">
+                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"
+                                    id="cartIcon"></i>Add to cart</button>
+                            <!-- <button type="submit" class="btn btn-primary btn-lg" id="SignButton">Sign In
+                        <i class="fa fa-sign-in-alt"></i>
+                      </button> -->
+                        </div>
+                        <div class="viewDetail">
+                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-book-open"
+                                    id="cartIcon"></i>View details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><br><br>
+    </div>
+
+    <!-- Book part end point -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- This is testimonial -->
+
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="/assets/image/testimonial/books-stack-of-three.png" class="rounded" alt="Cinque Terre"
+                        width="200px">
+                    <p class="paragraph">best collection</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <img src="/assets/image/testimonial/customer-value.png" class="rounded" alt="Cinque Terre"
+                        width="200px">
+                    <p class="paragraph">priority customer</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <img src="/assets/image/testimonial/easy to use.png" class="rounded" alt="Cinque Terre"
+                        width="200px">
+                    <p class="paragraph">user friendly</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <img src="/assets/image/testimonial/money.png" class="rounded" alt="Cinque Terre" width="200px">
+                    <p class="paragraph">less price</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End of testimonial -->
+
+
+
+
+
+
+    <app-footer></app-footer>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Sign Up</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+            <div class="cont">
+                <div class="row">
+                    <div class="col-sm-6">
+
+                        <div class="form-group">
+                            <label for="fullName">Title</label>
+                            <div class="input-group">
+                                <input id="fullName" name="fullName" class="form-control" placeholder="Title name"
+                                    ngModel>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Author</label>
+                            <div class="input-group">
+                                <input id="password" name="password" class="form-control" placeholder="Author name"
+                                    ngModel>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="form-group">
+                            <label for="email">ISBN</label>
+                            <div class="input-group">
+                                <input id="email" name="email" class="form-control" placeholder="Book isbn no" ngModel>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobileNumber">Price</label>
+                            <div class="input-group">
+                                <input id="mobileNumber" name="mobileNumber" class="form-control"
+                                    placeholder="Cost of book" ngModel>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="border text-center">
+                        <button data-dismiss="modal" class="btn btn-info">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+        <div class="col-sm-3 text-center">
+            <img class="img-fluid" src="/assets/image/book/sv.jpg" alt="Swami vivekanand book" width="200" height="260">
+            <h4>Object Oriented Programming with Angular</h4>
+
+
+
+        </div>
+        <div class="col-sm-3 text-center">
+            <img class="img-fluid" src="/assets/image/book/apj.jpg" alt="A.P.J abdul kalam book" width="200" height="260">
+            <h4>Object Oriented Programming with Angular</h4>
+
+
+
+        </div>
+        <div class="col-sm-3 text-center">
+            <img class="img-fluid" src="/assets/image/book/em.jpg" alt="Elon musk book" width="200" height="260">
+            <h4>Object Oriented Programming with Angular</h4>
+
+
+        </div>
+
+        <div class="col-sm-3 text-center">
+            <img class="img-fluid" src="/assets/image/book/sj.jpg" alt="Steve Jobs book" width="200" height="260">
+            <h4>Object Oriented Programming with Angular</h4>
+
+
+
+        </div>
+
+    </div> -->

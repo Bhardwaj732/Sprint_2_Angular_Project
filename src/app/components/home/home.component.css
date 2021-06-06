@@ -1,0 +1,109 @@
+body {
+	background: #ffffff;
+	color: #000000;
+	font-family: 'rockwell', sans-serif;
+}
+
+.navbar {
+	margin-bottom: 2px;
+}
+
+
+#cartIcon {
+	padding-right: 5px;
+}
+
+
+#titleDeco {
+	text-align: left;
+	padding-top: 10px;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+
+.jumbotron {
+	background-color: rgb(238, 238, 238);
+	margin-bottom: 0px;
+}
+
+
+.col-sm-2 {
+	background-color: white;
+}
+
+
+#lastContainer {
+	background-color: rgb(73, 72, 72);
+	color: whitesmoke;
+}
+
+
+.vl {
+	border-left: 2px solid white;
+	height: 200px;
+}
+
+
+#footer {
+	padding-left: 100px;
+}
+
+
+.container-fluid {
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+
+#SignButton {
+    text-align: center;
+    margin-left: 100px;
+}
+
+
+.paragraph {
+	text-align: justify;
+	margin-top: 18px;
+	font-size: 28px;
+	font-family: monospace;
+	font-weight: 1000;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	color: rgb(0, 0, 0);
+}
+
+
+
+#loginButton {
+	padding-top: 15px;
+	padding-right: 50px;
+	font-size: 16px;
+	font-weight: 500;
+	color: white;
+}
+
+
+#signUpButton {
+	padding-top: 15px;
+	padding-right: 15px;
+	font-size: 16px;
+	font-weight: 500;
+	color: white;
+}
+
+
+.fas {
+	padding-right: 3px;
+	size: 18px;
+}
+
+
+#bookRow {
+	margin-top: 70px;
+}
+
+#bookBottomRow {
+	margin-bottom: 100px;
+}
+  

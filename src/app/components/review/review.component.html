@@ -1,0 +1,187 @@
+
+<div class="Tablecontainer">
+  <div class="search-div">
+    <button mat-raised-button>                   
+      <mat-icon>add</mat-icon>Create
+  </button>
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter()" [(ngModel)]="searchKey" placeholder="Search here" #input>
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+  </button>
+  </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- Customer Id Column -->
+      <ng-container matColumnDef="bookId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Book ID</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.book.bookId}}</mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="categoryName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Category Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.book.category.categoryName}}</mat-cell>
+      </ng-container>
+  
+      <!-- Email column -->
+      <ng-container matColumnDef="comment">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Comment</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.comment}}</mat-cell>
+      </ng-container>
+  
+      <!-- Mobile Column -->
+      <ng-container matColumnDef="reviewOn">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Review Date </mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.reviewOn}}</mat-cell>
+      </ng-container>
+
+      <!-- Mobile Column -->
+      <ng-container matColumnDef="rating">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Rating</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.rating}}</mat-cell>
+      </ng-container>
+  
+      <!-- Action column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            
+            
+          <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, row)">
+            <i class="fa fa-search"></i>Details</button>
+          <button mat-icon-button (click)="removeReviewById(row.reviewId)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+        </mat-cell>
+    </ng-container>
+  
+      
+      <!-- Table header -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+  
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ng-template #contentDetails let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title1">Reviews</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm" novalidate>
+        <div class="cont">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Book ID</label>
+                <div class="input-group">
+                  <input id="bookId" class="form-control" readonly>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label>Author Name</label>
+                <div class="input-group">
+                  <input id="author" class="form-control" readonly>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label>Comment</label>
+                <div class="input-group">
+                  <input id="comment" class="form-control" readonly>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label>Customer E-mail</label>
+                <div class="input-group">
+                  <input id="email" class="form-control" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Book Title</label>
+                <div class="input-group">
+                  <input id="title" class="form-control" readonly>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label>Book Category</label>
+                <div class="input-group">
+                  <input id="categoryName" class="form-control" readonly>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label>Rating</label>
+                <div class="input-group">
+                  <input id="rating" class="form-control" readonly>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label>Review Date</label>
+                <div class="input-group">
+                  <input id="reviewOn" class="form-control" readonly>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+  
+  
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+  </ng-template>

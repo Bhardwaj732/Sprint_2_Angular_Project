@@ -1,0 +1,15 @@
+body {
+    background-image: url("/assets/image/bodyImage.jpg");
+    min-height: 100%;    
+}
+
+#signUp {
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+
+.hr {
+    background-color: blue;
+    height: 3px;
+}

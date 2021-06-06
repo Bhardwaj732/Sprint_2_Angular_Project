@@ -1,0 +1,60 @@
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <!-- <h2><b>Nitin Bhardwaj</b></h2> -->
+      </div>
+
+      <div class="col-sm-3">
+        <!-- <h2><b>Subhankar Singh</b></h2> -->
+      </div>
+
+      <div class="col-sm-4" id="logIn">
+        <div class="signup-form">
+          <form (ngSubmit)="customerLogin()">
+            <h2><b>Log In</b></h2>
+            <hr class="hr">
+
+            <div class="container">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <span class="fa fa-envelope"></span>
+                  </span>
+                </div>
+                <input type="text" class="form-control" name="email" placeholder="example@gmail.com" [(ngModel)]="user.email"
+                  required="required">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-key"></i>
+                  </span>
+                </div>
+                <input type="password" class="form-control" name="password" placeholder="password"
+                  [(ngModel)]="user.password" required="required">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-lg" id="SignButton">Sign In
+                <i class="fa fa-sign-in-alt"></i>
+              </button>
+            </div>
+          </div>
+
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</body>

@@ -1,0 +1,67 @@
+#lastContainer {
+	background-color: rgb(73, 72, 72);
+	color: whitesmoke;
+	margin-bottom: 0px;
+}
+
+
+.vl {
+	border-left: 2px solid white;
+	height: 200px;
+}
+
+
+#footer {
+	padding-left: 100px;
+}
+
+
+.container-fluid {
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+
+#SignButton {
+    text-align: center;
+    margin-left: 100px;
+}
+
+
+#cartIcon {
+	padding-right: 5px;
+}
+
+.d-flex {
+	background-color: rgb(37, 37, 37);
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+}
+
+
+#submitButton {
+	margin-top: 5px;
+	background-color: rgb(133, 238, 133);
+	color: black;
+	font-weight: 550;
+}
+
+#headingLabel {
+	font-weight: 450;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-variant-ligatures: normal;
+}
+
+#commentLabel {
+	font-weight: 450;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-variant-ligatures: normal;
+}
+
+#emailLabel {
+	font-weight: 450;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-variant-ligatures: normal;
+}

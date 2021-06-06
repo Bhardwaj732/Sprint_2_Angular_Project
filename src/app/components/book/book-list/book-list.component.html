@@ -1,0 +1,421 @@
+<p>book-list works!</p>
+
+
+<p>You can introduce custom directives for table headers to sort columns</p>
+
+<div class="tb">
+  <div class="row">
+    <div class="col-sm-2">
+      <h2>Nitin Bhardwaj</h2>
+    </div>
+    <div class="col-sm-10">
+      <div class="border">
+        <button class="btn btn-md btn-outline-primary" (click)="open(content)">
+          <i class="fa fa-user"></i>Add Book</button>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Book Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category Name</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books">
+            <td>{{book.bookId}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.category.categoryName}}</td>
+            <td>
+              <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, book)">
+                <i class="fa fa-search"></i>Details</button>
+              <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, book)">
+                <i class="fa fa-edit"></i>Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, book)">
+                <i class="fa fa-remove"></i>Delete</button>
+            </td>
+
+
+
+            <!-- <td>
+                  (click)="onEdit(row)"     (click)="onDelete(row.categoryId)"     color="warn"
+                  <button ><mat-icon>launch</mat-icon></button>
+                  <button (click)="remove(book.bookId)"><mat-icon>delete_outline</mat-icon></button>
+                </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Book</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="cont">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <div class="input-group">
+                <input id="title" name="title" class="form-control" placeholder="Title name" ngModel>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="author">Author</label>
+              <div class="input-group">
+                <input id="author" name="author" class="form-control" placeholder="Author name" ngModel>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <div class="input-group">
+                <input id="description" name="description" class="form-control" placeholder="Book description" ngModel>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="price">Price</label>
+              <div class="input-group">
+                <input id="price" name="price" type="number" class="form-control" placeholder="Cost of book" ngModel>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="isbn">ISBN</label>
+              <div class="input-group">
+                <input id="isbn" name="isbn" class="form-control" placeholder="Book isbn no" ngModel>
+              </div>
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="publishDate">Publish Date</label>
+              <div class="input-group">
+                <input class="form-control" placeholder="Select publish date"
+                       name="publishDate" [(ngModel)]="model" id="publishDate" ngbDatepicker #date="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="date.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div> -->
+            <div class="form-group">
+              <label for="publishDate">Publish Date</label>
+              <div class="input-group">
+                <input id="publishDate" name="publishDate" class="form-control" placeholder="Select publish date"
+                  ngModel>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="lastUpdatedOn">Last Updated On</label>
+              <div class="input-group">
+                <input class="form-control" placeholder="Select last updated date"
+                       name="lastUpdatedOn" [(ngModel)]="model1" id="lastUpdatedOn" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label for="lastUpdatedOn">Last Updated On</label>
+              <div class="input-group">
+                <input id="lastUpdatedOn" name="lastUpdatedOn" class="form-control"
+                  placeholder="Select last updated date" ngModel>
+              </div>
+            </div> -->
+
+
+
+            
+            <!-- <div class="form-group">
+              <label for="firstname">Firstname</label>
+              <div class="input-group">
+                <input id="firstname" name="firstname" class="form-control" ngModel>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastname">Lastname</label>
+              <div class="input-group">
+                <input id="lastname" name="lastname" class="form-control" ngModel>
+              </div>
+            </div> -->
+
+            <div class="form-group">
+              <label for="category">Category Id</label>
+              <select class="form-control" id="category" name="category" ngModel>
+                <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.categoryName}}</option>
+              </select>
+
+              <!-- <div class="input-group">
+                <input id="categoryId" name="categoryId" class="form-control" placeholder="Select category id" ngModel>
+              </div> -->
+            </div>
+
+
+
+            <!-- <mat-form-field>
+              <mat-select formControlName="category" placeholder="Book category">
+                  <mat-option>None</mat-option>
+                      <ng-container *ngFor="let category of categories"> 
+                      <mat-option value="{{category}}">{{category.categoryName}}</mat-option>
+                  </ng-container>
+              </mat-select>
+          </mat-form-field> -->
+
+
+
+          </div>
+        </div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info">Submit</button>
+        </div>
+      </div>
+    </form>
+    <!-- <pre>Model: {{ model |date: 'yyyy/MM/dd'}}</pre>
+    <pre>Model-1: {{ model1 | json }}</pre> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title1">Book Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="cont">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Title</label>
+              <div class="input-group">
+                <input id="title1" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Author</label>
+              <div class="input-group">
+                <input id="author1" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Description</label>
+              <div class="input-group">
+                <input id="description1" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Price</label>
+              <div class="input-group">
+                <input id="price1" type="number" class="form-control" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>ISBN</label>
+              <div class="input-group">
+                <input id="isbn1" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Publish Date</label>
+              <div class="input-group">
+                <input id="publishDate1" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Last Updated On</label>
+              <div class="input-group">
+                <input id="lastUpdatedOn1" class="form-control" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Category Name</label>
+              <div class="input-group">
+                <input id="category1" class="form-control" readonly>
+              </div>
+            </div>
+
+            <!-- <div class="form-group">
+              <label>Category Id</label>
+              <select class="form-control" id="category1">
+                <option *ngFor="let cat of categories" [value]="cat">{{cat.categoryName}}</option>
+              </select>
+            </div> -->
+          </div>
+        </div>
+        <!-- <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info">Submit</button>
+        </div> -->
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+<ng-template #contentEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Edit Book Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" novalidate>
+      <div class="cont">
+        <div class="row">
+          <div class="col-sm-6">
+
+            <!-- <div class="form-group">
+              <label>Book Id</label>
+              <div class="input-group">
+                <input formControlName="bookId" class="form-control">
+              </div>
+            </div> -->
+
+            <div class="form-group">
+              <label>Title</label>
+              <div class="input-group">
+                <input formControlName="title" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Author</label>
+              <div class="input-group">
+                <input formControlName="author" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Description</label>
+              <div class="input-group">
+                <input formControlName="description" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Price</label>
+              <div class="input-group">
+                <input formControlName="price" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>ISBN</label>
+              <div class="input-group">
+                <input formControlName="isbn" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Publish Date</label>
+              <div class="input-group">
+                <input formControlName="publishDate" class="form-control">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Last Updated On</label>
+              <div class="input-group">
+                <input formControlName="lastUpdatedOn" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Category Name</label>
+              <select class="form-control" formControlName="category">
+                <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.categoryName}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info" (click)="onSave()">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #contentDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirm Delete</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h2>Are you sure you want to delete this record.</h2>
+    <div class="border text-center"> 
+      <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button> 
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
