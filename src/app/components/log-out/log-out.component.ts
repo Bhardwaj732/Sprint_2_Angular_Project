@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { isValidUser} from 'src/app/components/login/login.component';
 
 @Component({
   selector: 'app-log-out',
@@ -10,6 +11,7 @@ export class LogOutComponent implements OnInit {
 
   userId: string='';
   email: string='';
+  // isValidUser2: boolean = isValidUser; 
 
   constructor(private router:Router) { }
 
@@ -19,6 +21,7 @@ export class LogOutComponent implements OnInit {
     console.log(this.userId);
     console.log(this.email);
     sessionStorage.clear();
+    // this.isValidUser2 = false;
     this.router.navigate(['/login']);
   }
 

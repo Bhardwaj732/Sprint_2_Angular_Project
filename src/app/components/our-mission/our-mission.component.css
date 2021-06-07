@@ -1,0 +1,43 @@
+.jumbotron {
+    background-color: rgb(24, 145, 8);
+    color: white;
+    margin-top: 40px;
+}
+
+#missionUpButton {
+    margin-left: 15px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+#aboutButton {
+    margin-top: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+#homeButton {
+	margin-left: 50px;
+	color: white;
+	padding-bottom: 10px;
+  }
+  
+  #loginButton {
+	  padding-top: 0px;
+	  padding-right: 50px;
+	  font-size: 16px;
+	font-weight: 500;
+	color: white;
+	/* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  }
+
+  #signUpButton {
+	/* padding-top: 15px; */
+	padding-right: 15px;
+	font-size: 16px;
+	font-weight: 500;
+	color: white;
+}

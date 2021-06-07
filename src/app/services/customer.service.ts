@@ -16,6 +16,11 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${this.baseUrl}/getAllCustomers`);
   }
 
+  getCustomerByUserId(userId: number): Observable<Customer>{
+    return this.http.get<Customer>(`${this.baseUrl}/getCustomerByUserId/${userId}`);
+  }
+
+
   getCustomerById(customerId: number): Observable<Customer>{
     return this.http.get<Customer>(`${this.baseUrl}/getCustomerById/${customerId}`);
   }
@@ -43,8 +48,8 @@ export class CustomerService {
   //   return this.http.post(`${this.baseUrl}/create`, product);
   // }
 
-  // getProduct(id: number): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}/getproduct/${id}`);
+  // getCustomerById(id: number): Observable<any> {
+  //   return this.http.get(`${this.baseUrl}/getCustomerById/${id}`);
   // }
 
   // editProduct(product: Product): Observable<any> {

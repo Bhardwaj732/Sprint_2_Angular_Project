@@ -1,0 +1,91 @@
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag -------->
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <form class="form-horizontal span6">
+        <fieldset>
+          <legend>Payment</legend>
+       
+          <div class="control-group">
+            <label class="control-label" >Card Holder's Name</label>
+            <div class="controls">
+              <input type="text" class="input-block-level" [(ngModel)]="payment.cardHolderName" name="cardHolderName" [ngModelOptions]="{standalone: true}"  placeholder="Fill your first and last name" required>
+            </div>
+          </div>
+       
+          <div class="control-group">
+            <label class="control-label" >Card Number</label>
+            <div class="controls">
+              <div class="row-fluid">
+                <div class="span3">
+                  <input type="text" class="input-block-level" [(ngModel)]="payment.cardNumber" name="cardNumber" [ngModelOptions]="{standalone: true}" autocomplete="off" maxlength="12" pattern="\d{12}" title="twelve digits" required>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+       
+          <div class="control-group">
+            <label class="control-label">Card Expiry Date</label>
+            <div class="controls">
+              <div class="row-fluid">
+                <div class="span9">
+                  <select class="input-block-level" [(ngModel)]="payment.month" name="month" [ngModelOptions]="{standalone: true}">
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                </div>
+                <div class="span3">
+                  <select class="input-block-level" [(ngModel)]="payment.year" name="year"[ngModelOptions]="{standalone: true}">
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+          <div class="control-group">
+            <label class="control-label">Card CVV</label>
+            <div class="controls">
+              <div class="row-fluid">
+                <div class="span3">
+                  <input type="password" class="input-block-level" [(ngModel)]="payment.cvv" name="cvv"[ngModelOptions]="{standalone: true}"autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required>
+                </div>
+                <div class="span8">
+                  <!-- screenshot may be here -->
+                </div>
+              </div>
+            </div>
+          </div>
+       
+          <div class="form-actions">
+            <button type="submit" isValid="true" (click)="addPayment()" class="btn btn-info">OK</button>
+            <button type="button" [routerLink]="['/place-order']" class="btn btn-danger">Cancel</button>
+        </div>
+          <div class="form-actions" *ngIf="!isPresent">
+              <input type="number" placeholder="please enter otp" >
+              <button type="submit"  [routerLink]="['/order-detailsSahithi']" class="btn btn-info">Submit</button>
+              <button type="button" [routerLink]="['/place-order']" class="btn btn-danger" style="float: right;">Cancel</button>
+              </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

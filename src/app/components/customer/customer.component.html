@@ -1,53 +1,27 @@
-<p>customer works!</p>
-
-<!-- <p>You can introduce custom directives for table headers to sort columns</p>
-
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
-    <th scope="col" sortable="area" (sort)="onSort($event)">Area</th>
-    <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let country of countries">
-    <th scope="row">{{ country.id }}</th>
-    <td>
-      <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-      {{ country.name }}
-    </td>
-    <td>{{ country.area | number }}</td>
-    <td>{{ country.population | number }}</td>
-  </tr>
-  </tbody>
-</table> -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sidebarNavigation" data-sidebarClass="navbar-dark bg-dark">
+     
+  <div class="container-fluid">
+   
+     
+      <a class="navbar-brand" id="homeButton" routerLink="/"><i class="fas fa-home"></i></a>
+      <button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="nav navbar-nav nav-flex-icons ml-auto">
+             
+              <li class="nav-item active">
+                <a routerLink="/login" id="loginButton">Logout </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  </nav>
 
 
 
@@ -56,9 +30,10 @@
 
 <div class="Tablecontainer">
   <div class="search-div">
-    <button mat-raised-button>
-      <mat-icon>add</mat-icon>Create
+    <button mat-raised-button id="backButton" routerLink="/admin-home">
+      <mat-icon>reply</mat-icon>Back
     </button>
+
     <mat-form-field class="search-form-field" floatLabel="never">
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter()" [(ngModel)]="searchKey" placeholder="Search here" #input>
@@ -133,9 +108,9 @@
 
 
 
-  
 
-  
+
+
 
 
 

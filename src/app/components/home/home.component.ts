@@ -19,23 +19,12 @@ export class HomeComponent implements OnInit {
     private modalService: NgbModal,
     private loginService: LoginService, 
     private router: Router
-
     ) { }
 
-  // user: UserClass = new UserClass();
-  // email = new FormControl('', [Validators.required, Validators.email]);
-  // hide = true;
   model!: NgbDateStruct;
   model1!: NgbDateStruct;
   editForm!: FormGroup;
-  
-  // getErrorMessage() {
-  //   if (this.email.hasError('required')) {
-  //     return 'You must enter a value';
-  //   }
-
-  //   return this.email.hasError('email') ? 'Not a valid email' : '';
-  // }
+  title: string ='';
 
   books!: Book[];
   index =0;
@@ -55,6 +44,18 @@ export class HomeComponent implements OnInit {
         alert(error);
       }
     );
+  }
+
+
+  public search(){
+    if(this.title!="")
+    {
+    this.books=this.books?.filter(res=>{
+      return res.title?.toLocaleLowerCase().match(this.title?.toLowerCase())
+    })
+    }else if(this.title==""){
+      this.ngOnInit();
+    }
   }
 
 
@@ -93,6 +94,24 @@ export class HomeComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+
+  openDetails(targetModal: any, book: Book) {
+    this.modalService.open(targetModal, {
+      centered: true,
+      backdrop: 'static',
+      size: 'md'
+    });
+    document.getElementById('title1')?.setAttribute('value', book.title);
+    document.getElementById('author1')?.setAttribute('value', book.author);
+    document.getElementById('description1')?.setAttribute('value', book.description);
+    document.getElementById('price1')?.setAttribute('value', book.price + "");
+    document.getElementById('isbn1')?.setAttribute('value', book.isbn);
+    document.getElementById('publishDate1')?.setAttribute('value', book.publishDate + "");
+    document.getElementById('lastUpdatedOn1')?.setAttribute('value', book.lastUpdatedOn + "");
+    document.getElementById('category1')?.setAttribute('value', book.category.categoryName);
+
   }
 
 

@@ -35,6 +35,16 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { AdminHomeComponent } from './components/home/admin-home/admin-home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { CustomerOrderDetailsComponent } from './components/customer-order-details/customer-order-details.component';
+import { CartComponent } from './components/cart/cart.component';
+import { DebitCardComponent } from './components/debit-card/debit-card.component';
+import { ListbooksComponent } from './components/listbooks/listbooks.component';
+import { PlaceOrderComponent } from './components/place-order/place-order.component';
+import { BookSahithiService } from './services/bookSahithi.service';
+import { CustomerHomeComponent } from './components/home/customer-home/customer-home.component';
+import { BookDetailsComponent } from './components/book/book-details/book-details.component';
+import { AboutComponent } from './components/about/about.component';
+import { OurMissionComponent } from './components/our-mission/our-mission.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +63,16 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     ContactUsComponent,
     AdminHomeComponent,
     FooterComponent,
-    SignUpComponent
+    SignUpComponent,
+    CustomerOrderDetailsComponent,
+    CartComponent,
+    DebitCardComponent,
+    ListbooksComponent,
+    PlaceOrderComponent,
+    CustomerHomeComponent,
+    BookDetailsComponent,
+    AboutComponent,
+    OurMissionComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +90,16 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     NgxPopper,
     MaterialModule,
   ],
-  providers: [BookService, CategoryService, CustomerService, LoginService, OrderDetailsService, ReviewService, FormBuilder],
+  providers: [
+    BookService, 
+    CategoryService, 
+    CustomerService, 
+    LoginService, 
+    OrderDetailsService, 
+    ReviewService, 
+    FormBuilder,
+    BookSahithiService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [BookComponent, MatConfirmDialogComponent]
 })

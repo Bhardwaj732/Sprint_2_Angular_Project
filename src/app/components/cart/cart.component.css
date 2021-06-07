@@ -1,0 +1,35 @@
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+    .container {
+        
+        position: relative;
+      }
+      
+      .child {
+         
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .custab2{
+        /* border: 1px solid rgb(155, 15, 15); */
+        /* padding: 5px; */
+        
+        box-shadow: 3px 3px 2px #ccc;
+        transition: 0.5s;
+        }
+        .tab{
+            background-color:#cebdbd;
+            width: 20%;
+            text-align: center;
+        }

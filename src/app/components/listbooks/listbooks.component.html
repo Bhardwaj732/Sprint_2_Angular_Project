@@ -1,0 +1,38 @@
+<!-- <input type="text" [(ngModel)]="title" (input)="search()" placeholder="Search">
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+               <th>bookId</th>
+               <th>title</th>
+               <th>author</th>
+               
+               <th>description</th>
+               <th>isbn</th>
+               <th>price</th>
+               <th>publishDate</th>
+               <th>lastUpdatedOn</th>
+               <th>Category</th>
+               <th>Crat</th>
+               
+        </tr>
+    </thead>
+        <tbody>
+                <tr *ngFor="let b of books">
+                    <td>{{b.bookId}}</td>
+                    <td>{{b.title}}</td>
+                    <td>{{b.author}}</td>
+                    <td>{{b.description}}</td>
+                    <td>{{b.isbn}}</td>
+                    <td>{{b.price}}</td>
+                    <td>{{b.publishDate}}</td>
+                    <td>{{b.lastUpdatedOn}}</td> 
+                    <td>{{b.category.categoryName}}</td>
+                    <td> <button type="button" 
+                         (click)="addToCart(b)"   class="btn btn-primary btn-sm">
+                        Add to cart</button></td>
+
+                </tr>
+        </tbody>
+
+    </table>
+     -->

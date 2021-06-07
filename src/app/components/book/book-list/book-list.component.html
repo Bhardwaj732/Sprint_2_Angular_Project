@@ -1,56 +1,74 @@
-<p>book-list works!</p>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sidebarNavigation" data-sidebarClass="navbar-dark bg-dark">
+     
+  <div class="container-fluid">
+   
+     
+      <a class="navbar-brand" id="homeButton" routerLink="/"><i class="fas fa-home"></i></a>
+      <button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      
 
 
-<p>You can introduce custom directives for table headers to sort columns</p>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="nav navbar-nav nav-flex-icons ml-auto">
+             
+              <li class="nav-item active">
+                <a routerLink="/login" id="loginButton">Logout </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  </nav>
+
+
+
+
+
 
 <div class="tb">
-  <div class="row">
-    <div class="col-sm-2">
-      <h2>Nitin Bhardwaj</h2>
+  <div class="row" id="bookRow">
+    <!-- <div class="col-sm-12" > -->
+    <div>
+      <button class="btn btn-md btn-outline-primary" id="backButton" routerLink="/admin-home">
+        <i class="fa fa-arrow-left"></i>Back</button>
     </div>
-    <div class="col-sm-10">
-      <div class="border">
-        <button class="btn btn-md btn-outline-primary" (click)="open(content)">
-          <i class="fa fa-user"></i>Add Book</button>
-      </div>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Book Id</th>
-            <th scope="col">Title</th>
-            <th scope="col">Author</th>
-            <th scope="col">Price</th>
-            <th scope="col">Category Name</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let book of books">
-            <td>{{book.bookId}}</td>
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>{{book.price}}</td>
-            <td>{{book.category.categoryName}}</td>
-            <td>
-              <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, book)">
-                <i class="fa fa-search"></i>Details</button>
-              <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, book)">
-                <i class="fa fa-edit"></i>Edit</button>
-              <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, book)">
-                <i class="fa fa-remove"></i>Delete</button>
-            </td>
-
-
-
-            <!-- <td>
-                  (click)="onEdit(row)"     (click)="onDelete(row.categoryId)"     color="warn"
-                  <button ><mat-icon>launch</mat-icon></button>
-                  <button (click)="remove(book.bookId)"><mat-icon>delete_outline</mat-icon></button>
-                </td> -->
-          </tr>
-        </tbody>
-      </table>
+    <div>
+      <button class="btn btn-md btn-outline-primary" id="addButton" (click)="open(content)">
+        <i class="fa fa-user"></i>Add Book</button>
     </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Book Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Price</th>
+          <th scope="col">Category Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{book.bookId}}</td>
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.category.categoryName}}</td>
+          <td id="actionButton">
+            <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, book)">
+              <i class="fa fa-search"></i>Details</button>
+            <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, book)">
+              <i class="fa fa-edit"></i>Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, book)">
+              <i class="fa fa-remove"></i>Delete</button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>
@@ -127,8 +145,8 @@
             <div class="form-group">
               <label for="lastUpdatedOn">Last Updated On</label>
               <div class="input-group">
-                <input class="form-control" placeholder="Select last updated date"
-                       name="lastUpdatedOn" [(ngModel)]="model1" id="lastUpdatedOn" ngbDatepicker #d="ngbDatepicker">
+                <input class="form-control" placeholder="Select last updated date" name="lastUpdatedOn"
+                  [(ngModel)]="model1" id="lastUpdatedOn" ngbDatepicker #d="ngbDatepicker">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
                 </div>
@@ -144,7 +162,7 @@
 
 
 
-            
+
             <!-- <div class="form-group">
               <label for="firstname">Firstname</label>
               <div class="input-group">
@@ -365,7 +383,7 @@
                 <input formControlName="publishDate" class="form-control">
               </div>
             </div>
-            
+
             <div class="form-group">
               <label>Last Updated On</label>
               <div class="input-group">
@@ -411,8 +429,8 @@
   </div>
   <div class="modal-body">
     <h2>Are you sure you want to delete this record.</h2>
-    <div class="border text-center"> 
-      <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button> 
+    <div class="border text-center">
+      <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button>
     </div>
   </div>
   <div class="modal-footer">

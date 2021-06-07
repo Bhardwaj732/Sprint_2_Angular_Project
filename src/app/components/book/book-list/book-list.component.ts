@@ -71,23 +71,6 @@ export class BookListComponent implements OnInit {
 
   }
 
-  // detail(bookId: number):void{
-  //   this.bookService.
-  //     .subscribe(
-  //       data => { console.log(data); this.product=data;  },
-  //       error => { console.log(error);  alert(error);}
-  //     );
-
-  // }
-
-  //  editproduct():void{​​​​​​​​
-  //     this.bookService.editProduct(this.product)
-  //       .subscribe(
-  //         data => {​​​​​​​​ console.log(data);  this.products=data; this.reloadData();}​​​​​​​​,
-  //         error => {​​​​​​​​ console.log(error);  }​​​​​​​​
-  //       );
-  //   }​​​​​​​​
-
 
   open(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
